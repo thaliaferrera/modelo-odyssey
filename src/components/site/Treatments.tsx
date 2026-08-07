@@ -3,33 +3,33 @@ import { Reveal } from "./Reveal";
 const TREATMENTS = [
   {
     n: "01",
-    title: "Dental Implants",
-    text: "Guided, computer-planned implants placed with sub-millimetre accuracy — often with a provisional crown the same day.",
+    title: "Implantes Dentários",
+    text: "Implantes guiados e planejados por computador, posicionados com precisão submilimétrica — muitas vezes com coroa provisória no mesmo dia.",
   },
   {
     n: "02",
-    title: "Orthodontics",
-    text: "Invisible aligners and self-ligating systems, simulated end-to-end before the first tray is ever worn.",
+    title: "Ortodontia",
+    text: "Alinhadores invisíveis e sistemas autoligados, simulados do início ao fim antes do primeiro alinhador ser usado.",
   },
   {
     n: "03",
-    title: "Teeth Whitening",
-    text: "Enamel-safe protocols calibrated to your natural shade, never beyond what a face can carry.",
+    title: "Clareamento Dental",
+    text: "Protocolos seguros para o esmalte, calibrados para o seu tom natural, nunca além do que o rosto comporta.",
   },
   {
     n: "04",
-    title: "Veneers",
-    text: "Ultra-thin ceramic laminates, hand-layered by a master ceramist to mimic the optics of natural enamel.",
+    title: "Lentes de Contato Dental",
+    text: "Laminados cerâmicos ultrafinos, estratificados à mão por um ceramista mestre para imitar a óptica do esmalte natural.",
   },
   {
     n: "05",
-    title: "Facial Harmonization",
-    text: "Restrained facial balancing that frames the smile — proportion first, product second.",
+    title: "Harmonização Facial",
+    text: "Equilíbrio facial contido que emoldura o sorriso — proporção primeiro, produto depois.",
   },
   {
     n: "06",
-    title: "Aesthetic Dentistry",
-    text: "Full-mouth rehabilitations that restore function and quietly rewrite the way a face reads.",
+    title: "Odontologia Estética",
+    text: "Reabilitações totais que devolvem função e reescrevem discretamente a forma como um rosto é percebido.",
   },
 ];
 
@@ -38,10 +38,10 @@ export function Treatments() {
     <section id="treatments" className="bg-ivory py-28 lg:py-40">
       <div className="mx-auto max-w-[88rem] px-6 lg:px-10">
         <Reveal className="max-w-2xl">
-          <p className="eyebrow">Treatments</p>
+          <p className="eyebrow">Tratamentos</p>
           <h2 className="mt-6 font-display text-4xl leading-[1.08] text-navy sm:text-5xl lg:text-6xl">
-            Six disciplines,
-            <span className="italic text-gold"> one standard.</span>
+            Seis especialidades,
+            <span className="italic text-gold"> um só padrão.</span>
           </h2>
         </Reveal>
 

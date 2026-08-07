@@ -3,20 +3,20 @@ import { Reveal } from "./Reveal";
 
 const TECH = [
   {
-    title: "3D Scanner",
-    text: "Intraoral scanning in under four minutes. No trays, no impression material, no gagging.",
+    title: "Scanner 3D",
+    text: "Escaneamento intraoral em menos de quatro minutos. Sem moldeiras, sem massa de moldagem, sem enjoo.",
   },
   {
-    title: "Digital Planning",
-    text: "Your case is designed and approved on screen before a single instrument is opened.",
+    title: "Planejamento Digital",
+    text: "Seu caso é projetado e aprovado na tela antes de qualquer instrumento ser aberto.",
   },
   {
-    title: "Laser Technology",
-    text: "Soft-tissue lasers for near-bloodless procedures and markedly faster healing.",
+    title: "Tecnologia a Laser",
+    text: "Lasers de tecidos moles para procedimentos praticamente sem sangramento e cicatrização muito mais rápida.",
   },
   {
-    title: "Digital X-Ray",
-    text: "Tomography with up to 90% less radiation and immediate diagnostic clarity.",
+    title: "Raio-X Digital",
+    text: "Tomografia com até 90% menos radiação e clareza diagnóstica imediata.",
   },
 ];
 
@@ -27,10 +27,10 @@ export function Technology() {
         <div className="grid gap-16 lg:grid-cols-2 lg:gap-24">
           <div className="flex flex-col justify-center">
             <Reveal>
-              <p className="eyebrow">Technology</p>
+              <p className="eyebrow">Tecnologia</p>
               <h2 className="mt-6 font-display text-4xl leading-[1.08] text-white sm:text-5xl lg:text-6xl">
-                Instruments that
-                <span className="italic text-gold-soft"> remove the guesswork.</span>
+                Instrumentos que
+                <span className="italic text-gold-soft"> eliminam a incerteza.</span>
               </h2>
             </Reveal>
 
@@ -58,7 +58,7 @@ export function Technology() {
           <Reveal variant="slow" className="relative lg:pt-10">
             <img
               src={techImage}
-              alt="3D intraoral scanner beside a digital smile design on screen"
+              alt="Scanner intraoral 3D ao lado de um projeto digital do sorriso na tela"
               width={1408}
               height={1008}
               loading="lazy"
@@ -66,7 +66,7 @@ export function Technology() {
             />
             <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-navy/80 to-transparent p-8">
               <p className="font-display text-2xl italic text-gold-soft">
-                Planned in pixels. Delivered in enamel.
+                Planejado em pixels. Entregue em esmalte.
               </p>
             </div>
           </Reveal>

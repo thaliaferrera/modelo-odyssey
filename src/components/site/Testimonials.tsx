@@ -3,21 +3,21 @@ import { Reveal } from "./Reveal";
 const QUOTES = [
   {
     quote:
-      "I have been treated in London and in New York. Odyssey is the first place where I felt the plan was built around my face rather than around a catalogue.",
+      "Já fui atendida em Londres e em Nova York. A Odyssey é o primeiro lugar em que senti que o plano foi construído em torno do meu rosto, e não de um catálogo.",
     name: "Marina L.",
-    detail: "Veneers · Jardins",
+    detail: "Lentes · Jardins",
   },
   {
     quote:
-      "Two implants, no swelling, back at the office the next morning. The digital planning meant there were no surprises at any stage.",
+      "Dois implantes, nenhum inchaço, de volta ao escritório na manhã seguinte. O planejamento digital fez com que não houvesse surpresa em nenhuma etapa.",
     name: "Ricardo T.",
-    detail: "Implants · Itaim",
+    detail: "Implantes · Itaim",
   },
   {
     quote:
-      "The clinic is silent, the appointments run on time, and Dra. Helena answers her own messages. That level of attention is rare.",
+      "A clínica é silenciosa, os horários são cumpridos e a Dra. Helena responde às próprias mensagens. Esse nível de atenção é raro.",
     name: "Sophie B.",
-    detail: "Orthodontics · Pinheiros",
+    detail: "Ortodontia · Pinheiros",
   },
 ];
 
@@ -26,10 +26,10 @@ export function Testimonials() {
     <section className="bg-background py-28 lg:py-40">
       <div className="mx-auto max-w-[88rem] px-6 lg:px-10">
         <Reveal className="max-w-2xl">
-          <p className="eyebrow">Testimonials</p>
+          <p className="eyebrow">Depoimentos</p>
           <h2 className="mt-6 font-display text-4xl leading-[1.08] text-navy sm:text-5xl lg:text-6xl">
-            Words from
-            <span className="italic text-gold"> our patients.</span>
+            Palavras dos
+            <span className="italic text-gold"> nossos pacientes.</span>
           </h2>
         </Reveal>
 

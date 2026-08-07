@@ -2,12 +2,12 @@ import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 
 const LINKS = [
-  { label: "About", href: "#about" },
-  { label: "Treatments", href: "#treatments" },
-  { label: "Technology", href: "#technology" },
-  { label: "Results", href: "#results" },
-  { label: "Doctors", href: "#doctors" },
-  { label: "Contact", href: "#contact" },
+  { label: "Sobre", href: "#about" },
+  { label: "Tratamentos", href: "#treatments" },
+  { label: "Tecnologia", href: "#technology" },
+  { label: "Resultados", href: "#results" },
+  { label: "Doutores", href: "#doctors" },
+  { label: "Contato", href: "#contact" },
 ];
 
 export function Nav() {
@@ -69,13 +69,13 @@ export function Nav() {
                 : "border-white/35 text-white hover:border-gold hover:bg-gold hover:text-charcoal"
             }`}
           >
-            Schedule
+            Agendar
           </a>
         </div>
 
         <button
           type="button"
-          aria-label={open ? "Close menu" : "Open menu"}
+          aria-label={open ? "Fechar menu" : "Abrir menu"}
           onClick={() => setOpen((v) => !v)}
           className={`shrink-0 justify-self-end p-2 transition-colors duration-700 lg:hidden ${
             scrolled || open ? "text-navy" : "text-white"
@@ -110,7 +110,7 @@ export function Nav() {
           onClick={() => setOpen(false)}
           className="mt-10 bg-navy py-5 text-center text-[0.7rem] uppercase tracking-[0.28em] text-primary-foreground"
         >
-          Schedule appointment
+          Agendar consulta
         </a>
       </div>
     </header>

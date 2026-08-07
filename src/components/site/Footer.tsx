@@ -1,12 +1,12 @@
 import { ADDRESS_LINES, EMAIL, PHONE_DISPLAY } from "@/lib/clinic";
 
 const NAV = [
-  { label: "About", href: "#about" },
-  { label: "Treatments", href: "#treatments" },
-  { label: "Technology", href: "#technology" },
-  { label: "Results", href: "#results" },
-  { label: "Doctors", href: "#doctors" },
-  { label: "Contact", href: "#contact" },
+  { label: "Sobre", href: "#about" },
+  { label: "Tratamentos", href: "#treatments" },
+  { label: "Tecnologia", href: "#technology" },
+  { label: "Resultados", href: "#results" },
+  { label: "Doutores", href: "#doctors" },
+  { label: "Contato", href: "#contact" },
 ];
 
 export function Footer() {
@@ -18,12 +18,13 @@ export function Footer() {
           <div>
             <p className="font-display text-3xl tracking-[0.22em] text-white">ODYSSEY</p>
             <p className="mt-6 max-w-sm text-sm leading-[1.9]">
-              High-end personalized dentistry. Designed digitally, delivered by hand.
+              Odontologia personalizada de alto padrão. Projetada digitalmente, entregue
+              à mão.
             </p>
           </div>
 
           <nav className="flex flex-col gap-3">
-            <p className="text-[0.6rem] uppercase tracking-[0.26em] text-gold">Explore</p>
+            <p className="text-[0.6rem] uppercase tracking-[0.26em] text-gold">Navegar</p>
             {NAV.map((l) => (
               <a key={l.href} href={l.href} className="w-fit text-sm link-luxe">
                 {l.label}
@@ -32,7 +33,7 @@ export function Footer() {
           </nav>
 
           <div className="flex flex-col gap-3">
-            <p className="text-[0.6rem] uppercase tracking-[0.26em] text-gold">Visit</p>
+            <p className="text-[0.6rem] uppercase tracking-[0.26em] text-gold">Visite</p>
             {ADDRESS_LINES.map((l) => (
               <span key={l} className="text-sm">
                 {l}
@@ -48,8 +49,8 @@ export function Footer() {
         </div>
 
         <div className="flex flex-col gap-3 border-t border-white/10 pt-8 text-[0.65rem] uppercase tracking-[0.22em] sm:flex-row sm:justify-between">
-          <span>© {new Date().getFullYear()} Odyssey Dental</span>
-          <span>CRO-SP 00000 · Responsible: Dra. Helena Vieira</span>
+          <span>© {new Date().getFullYear()} Odyssey Odontologia</span>
+          <span>CRO-SP 00000 · Responsável: Dra. Helena Vieira</span>
         </div>
       </div>
     </footer>

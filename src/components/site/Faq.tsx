@@ -4,24 +4,24 @@ import { Reveal } from "./Reveal";
 
 const FAQS = [
   {
-    q: "How does a first consultation work?",
-    a: "It lasts around 60 minutes. We scan, photograph and discuss — no treatment is performed on day one. You leave with a written plan, a digital simulation and a fixed price.",
+    q: "Como funciona a primeira consulta?",
+    a: "Dura cerca de 60 minutos. Escaneamos, fotografamos e conversamos — nenhum tratamento é realizado no primeiro dia. Você sai com um plano por escrito, uma simulação digital e um preço fechado.",
   },
   {
-    q: "Do you treat patients from abroad?",
-    a: "Frequently. We compress treatment into concentrated visits and coordinate with your hotel and driver. Remote follow-up is done by video with your treating doctor.",
+    q: "Vocês atendem pacientes do exterior?",
+    a: "Com frequência. Concentramos o tratamento em visitas reduzidas e coordenamos com seu hotel e motorista. O acompanhamento remoto é feito por vídeo com o seu doutor responsável.",
   },
   {
-    q: "Will veneers look artificial?",
-    a: "Not when they are designed properly. We simulate the result on your own face first and only proceed once the proportions read as natural to you.",
+    q: "As lentes ficam com aparência artificial?",
+    a: "Não quando são bem projetadas. Simulamos o resultado no seu próprio rosto antes e só seguimos adiante quando as proporções parecem naturais para você.",
   },
   {
-    q: "Is the treatment painful?",
-    a: "Most procedures are performed under local anaesthesia with laser assistance, and sedation is available. The majority of our patients return to normal routine the same day.",
+    q: "O tratamento é doloroso?",
+    a: "A maioria dos procedimentos é feita sob anestesia local com auxílio de laser, e há sedação disponível. A maior parte dos nossos pacientes retorna à rotina no mesmo dia.",
   },
   {
-    q: "Do you offer payment plans?",
-    a: "Yes. Plans are structured case by case with our concierge, including instalments and international card payments.",
+    q: "Vocês oferecem formas de pagamento parceladas?",
+    a: "Sim. Os planos são estruturados caso a caso com nosso concierge, incluindo parcelamento e pagamento com cartões internacionais.",
   },
 ];
 
@@ -33,10 +33,10 @@ export function Faq() {
       <div className="mx-auto max-w-[88rem] px-6 lg:px-10">
         <div className="grid gap-14 lg:grid-cols-[0.7fr_1.3fr] lg:gap-24">
           <Reveal>
-            <p className="eyebrow">Questions</p>
+            <p className="eyebrow">Dúvidas</p>
             <h2 className="mt-6 font-display text-4xl leading-[1.08] text-navy sm:text-5xl">
-              Everything you
-              <span className="italic text-gold"> may ask.</span>
+              Tudo o que você
+              <span className="italic text-gold"> pode perguntar.</span>
             </h2>
           </Reveal>
 

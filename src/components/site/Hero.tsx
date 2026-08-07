@@ -6,7 +6,7 @@ export function Hero() {
     <section id="top" className="relative min-h-[100svh] w-full overflow-hidden bg-navy-deep">
       <img
         src={heroImage}
-        alt="Odyssey dental clinic reception in white marble with navy and soft gold detailing"
+        alt="Recepção da clínica odontológica Odyssey em mármore branco com detalhes em azul-marinho e dourado suave"
         width={1920}
         height={1280}
         className="absolute inset-0 size-full object-cover"
@@ -16,7 +16,7 @@ export function Hero() {
 
       <div className="relative mx-auto flex min-h-[100svh] max-w-[88rem] flex-col justify-end px-6 pb-20 pt-32 lg:justify-center lg:px-10 lg:pb-28">
         <div className="max-w-3xl">
-          <p className="eyebrow animate-fade-in">São Paulo · New York · Dubai</p>
+          <p className="eyebrow animate-fade-in">São Paulo · Nova York · Dubai</p>
 
           <h1
             className="mt-6 font-display text-[3.1rem] leading-[0.95] text-white sm:text-7xl lg:text-[6.2rem]"
@@ -29,8 +29,8 @@ export function Hero() {
           <div className="mt-10 flex max-w-xl items-start gap-6">
             <span className="mt-3 hidden h-px w-16 shrink-0 bg-gold/70 sm:block" />
             <p className="text-base font-light leading-relaxed text-white/75 sm:text-lg">
-              High-end personalized dentistry using cutting-edge technology — designed
-              around your face, your rhythm and your definition of beauty.
+              Odontologia personalizada de alto padrão com tecnologia de ponta —
+              planejada em torno do seu rosto, do seu ritmo e da sua definição de beleza.
             </p>
           </div>
 
@@ -39,7 +39,7 @@ export function Hero() {
               href="#contact"
               className="group relative overflow-hidden border border-gold bg-gold px-10 py-5 text-center text-[0.7rem] uppercase tracking-[0.28em] text-charcoal transition-all duration-700 hover:bg-transparent hover:text-gold-soft"
             >
-              Schedule appointment
+              Agendar consulta
             </a>
             <a
               href={WHATSAPP_URL}
@@ -55,7 +55,7 @@ export function Hero() {
 
       <div className="absolute bottom-8 right-6 hidden items-center gap-4 lg:right-10 lg:flex">
         <span className="text-[0.65rem] uppercase tracking-[0.3em] text-white/50">
-          Scroll
+          Role
         </span>
         <span className="h-12 w-px bg-gradient-to-b from-white/10 to-gold" />
       </div>
