@@ -7,19 +7,19 @@ const DOCTORS = [
   {
     image: doctor1,
     name: "Dra. Helena Vieira",
-    role: "Founder · Aesthetic Dentistry",
-    credential: "MSc Prosthodontics, NYU",
+    role: "Fundadora · Odontologia Estética",
+    credential: "Mestre em Prótese Dentária, NYU",
   },
   {
     image: doctor2,
     name: "Dr. Marcus Alvim",
-    role: "Implantology · Surgery",
-    credential: "PhD Oral Implantology, USP",
+    role: "Implantodontia · Cirurgia",
+    credential: "Doutor em Implantodontia, USP",
   },
   {
     image: doctor3,
     name: "Dra. Camila Andrade",
-    role: "Orthodontics",
+    role: "Ortodontia",
     credential: "Invisalign Diamond Provider",
   },
 ];
@@ -29,10 +29,10 @@ export function Doctors() {
     <section id="doctors" className="bg-ivory py-28 lg:py-40">
       <div className="mx-auto max-w-[88rem] px-6 lg:px-10">
         <Reveal className="max-w-2xl">
-          <p className="eyebrow">The doctors</p>
+          <p className="eyebrow">Os doutores</p>
           <h2 className="mt-6 font-display text-4xl leading-[1.08] text-navy sm:text-5xl lg:text-6xl">
-            You will always know
-            <span className="italic text-gold"> whose hands.</span>
+            Você sempre saberá
+            <span className="italic text-gold"> de quem são as mãos.</span>
           </h2>
         </Reveal>
 
@@ -43,7 +43,7 @@ export function Doctors() {
                 <div className="overflow-hidden bg-background">
                   <img
                     src={d.image}
-                    alt={`${d.name}, ${d.role} at Odyssey`}
+                    alt={`${d.name}, ${d.role} na Odyssey`}
                     width={912}
                     height={1200}
                     loading="lazy"

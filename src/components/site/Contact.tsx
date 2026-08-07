@@ -19,14 +19,14 @@ export function Contact() {
         <div className="grid gap-16 lg:grid-cols-2 lg:gap-24">
           <div>
             <Reveal>
-              <p className="eyebrow">Contact</p>
+              <p className="eyebrow">Contato</p>
               <h2 className="mt-6 font-display text-4xl leading-[1.08] text-white sm:text-5xl lg:text-6xl">
-                Begin your
-                <span className="italic text-gold-soft"> odyssey.</span>
+                Comece sua
+                <span className="italic text-gold-soft"> odisseia.</span>
               </h2>
               <p className="mt-8 max-w-md text-base leading-[1.9] text-white/60">
-                Appointments are limited to eight patients per day. Tell us what you
-                would like to change and our concierge will respond within a few hours.
+                As consultas são limitadas a oito pacientes por dia. Conte-nos o que
+                você gostaria de mudar e nosso concierge responderá em poucas horas.
               </p>
             </Reveal>
 
@@ -34,7 +34,7 @@ export function Contact() {
               <dl className="mt-14 space-y-8 border-t border-white/10 pt-10">
                 <div>
                   <dt className="text-[0.6rem] uppercase tracking-[0.26em] text-gold">
-                    Clinic
+                    Clínica
                   </dt>
                   <dd className="mt-3 text-sm leading-relaxed text-white/70">
                     {ADDRESS_LINES.map((l) => (
@@ -46,7 +46,7 @@ export function Contact() {
                 </div>
                 <div>
                   <dt className="text-[0.6rem] uppercase tracking-[0.26em] text-gold">
-                    Direct
+                    Direto
                   </dt>
                   <dd className="mt-3 space-y-1 text-sm text-white/70">
                     <a href={`tel:${PHONE_DISPLAY.replace(/\s|-/g, "")}`} className="block link-luxe w-fit">
@@ -59,10 +59,10 @@ export function Contact() {
                 </div>
                 <div>
                   <dt className="text-[0.6rem] uppercase tracking-[0.26em] text-gold">
-                    Hours
+                    Horários
                   </dt>
                   <dd className="mt-3 text-sm text-white/70">
-                    Mon – Fri · 09h – 20h · Sat by appointment
+                    Seg – Sex · 09h – 20h · Sáb com hora marcada
                   </dd>
                 </div>
               </dl>
@@ -72,22 +72,22 @@ export function Contact() {
           <Reveal delay={100}>
             <form onSubmit={onSubmit} className="flex h-full flex-col">
               <div className="grid gap-8 sm:grid-cols-2">
-                <input required placeholder="Full name" className={FIELD} />
-                <input required type="tel" placeholder="Phone" className={FIELD} />
+                <input required placeholder="Nome completo" className={FIELD} />
+                <input required type="tel" placeholder="Telefone" className={FIELD} />
               </div>
               <div className="mt-8 grid gap-8 sm:grid-cols-2">
-                <input required type="email" placeholder="Email" className={FIELD} />
+                <input required type="email" placeholder="E-mail" className={FIELD} />
                 <select required defaultValue="" className={`${FIELD} text-white/60`}>
                   <option value="" disabled className="bg-navy">
-                    Interest
+                    Interesse
                   </option>
                   {[
-                    "Dental Implants",
-                    "Orthodontics",
-                    "Teeth Whitening",
-                    "Veneers",
-                    "Facial Harmonization",
-                    "Aesthetic Dentistry",
+                    "Implantes Dentários",
+                    "Ortodontia",
+                    "Clareamento Dental",
+                    "Lentes de Contato Dental",
+                    "Harmonização Facial",
+                    "Odontologia Estética",
                   ].map((o) => (
                     <option key={o} value={o} className="bg-navy text-white">
                       {o}
@@ -97,7 +97,7 @@ export function Contact() {
               </div>
               <textarea
                 rows={4}
-                placeholder="What would you like to change about your smile?"
+                placeholder="O que você gostaria de mudar no seu sorriso?"
                 className={`${FIELD} mt-8 resize-none`}
               />
 
@@ -106,7 +106,7 @@ export function Contact() {
                   type="submit"
                   className="border border-gold bg-gold px-10 py-5 text-[0.7rem] uppercase tracking-[0.28em] text-charcoal transition-all duration-700 hover:bg-transparent hover:text-gold-soft"
                 >
-                  {sent ? "Request received" : "Schedule appointment"}
+                  {sent ? "Solicitação recebida" : "Agendar consulta"}
                 </button>
                 <a
                   href={WHATSAPP_URL}
@@ -119,7 +119,7 @@ export function Contact() {
               </div>
               {sent && (
                 <p className="mt-6 text-sm text-gold-soft">
-                  Thank you — our concierge will contact you shortly.
+                  Obrigado — nosso concierge entrará em contato em breve.
                 </p>
               )}
             </form>

@@ -2,9 +2,9 @@ import aboutImage from "@/assets/about.jpg";
 import { Reveal } from "./Reveal";
 
 const STATS = [
-  { value: "18", label: "Years of practice" },
-  { value: "9.400", label: "Smiles designed" },
-  { value: "4", label: "Specialist doctors" },
+  { value: "18", label: "Anos de prática" },
+  { value: "9.400", label: "Sorrisos projetados" },
+  { value: "4", label: "Doutores especialistas" },
 ];
 
 export function About() {
@@ -15,7 +15,7 @@ export function About() {
           <Reveal variant="slow" className="relative">
             <img
               src={aboutImage}
-              alt="Marble and soft gold reception detail at the Odyssey clinic"
+              alt="Detalhe da recepção da clínica Odyssey em mármore e dourado suave"
               width={1200}
               height={1504}
               loading="lazy"
@@ -24,32 +24,32 @@ export function About() {
             <div className="absolute -bottom-8 -right-4 hidden bg-navy px-10 py-8 sm:block lg:-right-10">
               <p className="font-display text-5xl italic text-gold-soft">Odyssey</p>
               <p className="mt-2 text-[0.65rem] uppercase tracking-[0.3em] text-white/60">
-                Since 2008
+                Desde 2008
               </p>
             </div>
           </Reveal>
 
           <div className="flex flex-col justify-center">
             <Reveal>
-              <p className="eyebrow">The clinic</p>
+              <p className="eyebrow">A clínica</p>
               <h2 className="mt-6 font-display text-4xl leading-[1.08] text-navy sm:text-5xl lg:text-6xl">
-                A quiet kind of
-                <span className="italic text-gold"> precision.</span>
+                Uma forma silenciosa de
+                <span className="italic text-gold"> precisão.</span>
               </h2>
             </Reveal>
 
             <Reveal delay={120}>
               <p className="mt-8 max-w-xl text-base leading-[1.9] text-charcoal/70">
-                Odyssey was founded on a simple conviction: dentistry at the highest
-                level should feel like nothing at all. No waiting rooms that echo, no
-                treatments that rush. Every visit is a single-patient appointment,
-                planned digitally before you arrive and reviewed by the doctor who will
-                treat you.
+                A Odyssey nasceu de uma convicção simples: a odontologia no mais alto
+                nível deve ser imperceptível. Sem salas de espera que ecoam, sem
+                tratamentos apressados. Cada visita é um atendimento exclusivo,
+                planejado digitalmente antes da sua chegada e revisado pelo doutor que
+                irá tratá-lo.
               </p>
               <p className="mt-6 max-w-xl text-base leading-[1.9] text-charcoal/70">
-                Our team studied and practiced across São Paulo, New York and Dubai. What
-                we brought back is a standard of care measured in microns — and an
-                environment measured in calm.
+                Nossa equipe estudou e atuou em São Paulo, Nova York e Dubai. O que
+                trouxemos de volta é um padrão de cuidado medido em mícrons — e um
+                ambiente medido em calma.
               </p>
             </Reveal>
 

@@ -21,28 +21,28 @@ export function BeforeAfter() {
       <div className="mx-auto max-w-[88rem] px-6 lg:px-10">
         <div className="grid gap-14 lg:grid-cols-[0.8fr_1.2fr] lg:items-center lg:gap-24">
           <Reveal>
-            <p className="eyebrow">Before &amp; After</p>
+            <p className="eyebrow">Antes &amp; Depois</p>
             <h2 className="mt-6 font-display text-4xl leading-[1.08] text-navy sm:text-5xl lg:text-6xl">
-              The difference is
-              <span className="italic text-gold"> in the restraint.</span>
+              A diferença está
+              <span className="italic text-gold"> na discrição.</span>
             </h2>
             <p className="mt-8 max-w-md text-base leading-[1.9] text-charcoal/70">
-              A result should not announce itself. Drag the handle to see a full ceramic
-              veneer case — proportion, translucency and gingival line rebuilt to look
-              like they were always there.
+              Um resultado não deve se anunciar. Arraste o controle para ver um caso
+              completo de lentes cerâmicas — proporção, translucidez e linha gengival
+              reconstruídas para parecer que sempre estiveram ali.
             </p>
             <dl className="mt-10 grid grid-cols-2 gap-8 border-t border-border pt-8">
               <div>
                 <dt className="text-[0.6rem] uppercase tracking-[0.22em] text-muted-foreground">
-                  Treatment
+                  Tratamento
                 </dt>
-                <dd className="mt-2 font-display text-xl text-navy">10 veneers</dd>
+                <dd className="mt-2 font-display text-xl text-navy">10 lentes</dd>
               </div>
               <div>
                 <dt className="text-[0.6rem] uppercase tracking-[0.22em] text-muted-foreground">
-                  Duration
+                  Duração
                 </dt>
-                <dd className="mt-2 font-display text-xl text-navy">12 days</dd>
+                <dd className="mt-2 font-display text-xl text-navy">12 dias</dd>
               </div>
             </dl>
           </Reveal>
@@ -62,7 +62,7 @@ export function BeforeAfter() {
             >
               <img
                 src={afterImage}
-                alt="Smile after ceramic veneer treatment at Odyssey"
+                alt="Sorriso depois do tratamento com lentes cerâmicas na Odyssey"
                 width={912}
                 height={912}
                 loading="lazy"
@@ -74,7 +74,7 @@ export function BeforeAfter() {
               >
                 <img
                   src={beforeImage}
-                  alt="Smile before ceramic veneer treatment"
+                  alt="Sorriso antes do tratamento com lentes cerâmicas"
                   width={912}
                   height={912}
                   loading="lazy"
@@ -93,10 +93,10 @@ export function BeforeAfter() {
               </div>
 
               <span className="pointer-events-none absolute left-5 top-5 bg-charcoal/70 px-4 py-2 text-[0.6rem] uppercase tracking-[0.25em] text-white">
-                Before
+                Antes
               </span>
               <span className="pointer-events-none absolute right-5 top-5 bg-navy/80 px-4 py-2 text-[0.6rem] uppercase tracking-[0.25em] text-gold-soft">
-                After
+                Depois
               </span>
             </div>
           </Reveal>
