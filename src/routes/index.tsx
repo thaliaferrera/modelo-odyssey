@@ -11,9 +11,9 @@ import { Faq } from "@/components/site/Faq";
 import { Contact } from "@/components/site/Contact";
 import { Footer } from "@/components/site/Footer";
 
-const TITLE = "Odyssey — Luxury Dental Clinic in São Paulo";
+const TITLE = "Odyssey — Clínica Odontológica de Luxo em São Paulo";
 const DESCRIPTION =
-  "High-end personalized dentistry using cutting-edge technology. Implants, veneers, orthodontics and aesthetic dentistry at Odyssey, Jardins, São Paulo.";
+  "Odontologia personalizada de alto padrão com tecnologia de ponta. Implantes, lentes, ortodontia e odontologia estética na Odyssey, Jardins, São Paulo.";
 
 export const Route = createFileRoute("/")({
   head: () => ({
