@@ -40,7 +40,7 @@ export function Nav() {
         <a
           href="#top"
           className={`min-w-0 font-display text-2xl tracking-[0.22em] transition-colors duration-700 ${
-            scrolled ? "text-navy" : "text-navy lg:text-navy"
+            scrolled || open ? "text-navy" : "text-white"
           }`}
         >
           ODYSSEY
@@ -51,7 +51,9 @@ export function Nav() {
             <a
               key={l.href}
               href={l.href}
-              className="link-luxe text-[0.7rem] uppercase tracking-[0.22em] text-charcoal/70 transition-colors hover:text-navy"
+              className={`link-luxe text-[0.7rem] uppercase tracking-[0.22em] transition-colors duration-700 ${
+                scrolled ? "text-charcoal/70 hover:text-navy" : "text-white/75 hover:text-white"
+              }`}
             >
               {l.label}
             </a>
@@ -61,7 +63,11 @@ export function Nav() {
         <div className="hidden justify-end lg:flex">
           <a
             href="#contact"
-            className="border border-navy/20 px-7 py-3 text-[0.7rem] uppercase tracking-[0.22em] text-navy transition-all duration-500 hover:border-gold hover:bg-navy hover:text-primary-foreground"
+            className={`border px-7 py-3 text-[0.7rem] uppercase tracking-[0.22em] transition-all duration-700 ${
+              scrolled
+                ? "border-navy/20 text-navy hover:border-gold hover:bg-navy hover:text-primary-foreground"
+                : "border-white/35 text-white hover:border-gold hover:bg-gold hover:text-charcoal"
+            }`}
           >
             Schedule
           </a>
@@ -71,7 +77,9 @@ export function Nav() {
           type="button"
           aria-label={open ? "Close menu" : "Open menu"}
           onClick={() => setOpen((v) => !v)}
-          className="shrink-0 justify-self-end p-2 text-navy lg:hidden"
+          className={`shrink-0 justify-self-end p-2 transition-colors duration-700 lg:hidden ${
+            scrolled || open ? "text-navy" : "text-white"
+          }`}
         >
           {open ? <X className="size-5" /> : <Menu className="size-5" />}
         </button>
