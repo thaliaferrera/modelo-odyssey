@@ -1,4 +1,5 @@
 import aboutImage from "@/assets/about.jpg";
+import aboutImageWebp from "@/assets/about.webp";
 import { Reveal } from "./Reveal";
 
 const STATS = [
@@ -13,14 +14,17 @@ export function About() {
       <div className="mx-auto max-w-[88rem] px-6 lg:px-10">
         <div className="grid gap-16 lg:grid-cols-[0.9fr_1.1fr] lg:gap-24">
           <Reveal variant="slow" className="relative">
-            <img
-              src={aboutImage}
-              alt="Detalhe da recepção da clínica Odyssey em mármore e dourado suave"
-              width={1200}
-              height={1504}
-              loading="lazy"
-              className="aspect-[4/5] w-full object-cover"
-            />
+            <picture>
+              <source srcSet={aboutImageWebp} type="image/webp" />
+              <img
+                src={aboutImage}
+                alt="Detalhe da recepção da clínica Odyssey em mármore e dourado suave"
+                width={1200}
+                height={1504}
+                loading="lazy"
+                className="aspect-[4/5] w-full object-cover"
+              />
+            </picture>
             <div className="absolute -bottom-8 -right-4 hidden bg-navy px-10 py-8 sm:block lg:-right-10">
               <p className="font-display text-5xl italic text-gold-soft">Odyssey</p>
               <p className="mt-2 text-[0.65rem] uppercase tracking-[0.3em] text-white/60">
