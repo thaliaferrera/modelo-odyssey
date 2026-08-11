@@ -1,7 +1,13 @@
-import { useCallback, useRef, useState } from "react";
+import { useCallback, useRef, useState, type KeyboardEvent } from "react";
 import afterImage from "@/assets/after.jpg";
+import afterImageWebp from "@/assets/after.webp";
 import beforeImage from "@/assets/before.jpg";
+import beforeImageWebp from "@/assets/before.webp";
 import { Reveal } from "./Reveal";
+
+const MIN_POS = 2;
+const MAX_POS = 98;
+const KEY_STEP = 4;
 
 export function BeforeAfter() {
   const [pos, setPos] = useState(52);
@@ -13,7 +19,32 @@ export function BeforeAfter() {
     if (!el) return;
     const rect = el.getBoundingClientRect();
     const next = ((clientX - rect.left) / rect.width) * 100;
-    setPos(Math.min(98, Math.max(2, next)));
+    setPos(Math.min(MAX_POS, Math.max(MIN_POS, next)));
+  }, []);
+
+  const onKeyDown = useCallback((e: KeyboardEvent<HTMLDivElement>) => {
+    switch (e.key) {
+      case "ArrowLeft":
+      case "ArrowDown":
+        e.preventDefault();
+        setPos((p) => Math.max(MIN_POS, p - KEY_STEP));
+        break;
+      case "ArrowRight":
+      case "ArrowUp":
+        e.preventDefault();
+        setPos((p) => Math.min(MAX_POS, p + KEY_STEP));
+        break;
+      case "Home":
+        e.preventDefault();
+        setPos(MIN_POS);
+        break;
+      case "End":
+        e.preventDefault();
+        setPos(MAX_POS);
+        break;
+      default:
+        break;
+    }
   }, []);
 
   return (
@@ -58,32 +89,47 @@ export function BeforeAfter() {
               onPointerMove={(e) => dragging.current && setFromClientX(e.clientX)}
               onPointerUp={() => (dragging.current = false)}
               onPointerCancel={() => (dragging.current = false)}
+              onKeyDown={onKeyDown}
+              tabIndex={0}
+              role="slider"
+              aria-label="Comparação antes e depois do tratamento com lentes cerâmicas"
+              aria-orientation="horizontal"
+              aria-valuemin={0}
+              aria-valuemax={100}
+              aria-valuenow={Math.round(pos)}
               className="relative aspect-square w-full cursor-ew-resize select-none overflow-hidden touch-none"
             >
-              <img
-                src={afterImage}
-                alt="Sorriso depois do tratamento com lentes cerâmicas na Odyssey"
-                width={912}
-                height={912}
-                loading="lazy"
-                className="absolute inset-0 size-full object-cover"
-              />
+              <picture>
+                <source srcSet={afterImageWebp} type="image/webp" />
+                <img
+                  src={afterImage}
+                  alt="Sorriso depois do tratamento com lentes cerâmicas na Odyssey"
+                  width={912}
+                  height={912}
+                  loading="lazy"
+                  className="absolute inset-0 size-full object-cover"
+                />
+              </picture>
               <div
                 className="absolute inset-0 overflow-hidden"
                 style={{ width: `${pos}%` }}
               >
-                <img
-                  src={beforeImage}
-                  alt="Sorriso antes do tratamento com lentes cerâmicas"
-                  width={912}
-                  height={912}
-                  loading="lazy"
-                  className="absolute inset-0 h-full object-cover"
-                  style={{ width: frameRef.current?.clientWidth ?? "100%" }}
-                />
+                <picture>
+                  <source srcSet={beforeImageWebp} type="image/webp" />
+                  <img
+                    src={beforeImage}
+                    alt="Sorriso antes do tratamento com lentes cerâmicas"
+                    width={912}
+                    height={912}
+                    loading="lazy"
+                    className="absolute inset-0 h-full object-cover"
+                    style={{ width: frameRef.current?.clientWidth ?? "100%" }}
+                  />
+                </picture>
               </div>
 
               <div
+                aria-hidden="true"
                 className="pointer-events-none absolute inset-y-0 w-px bg-gold"
                 style={{ left: `${pos}%` }}
               >
@@ -92,10 +138,16 @@ export function BeforeAfter() {
                 </span>
               </div>
 
-              <span className="pointer-events-none absolute left-5 top-5 bg-charcoal/70 px-4 py-2 text-[0.6rem] uppercase tracking-[0.25em] text-white">
+              <span
+                aria-hidden="true"
+                className="pointer-events-none absolute left-5 top-5 bg-charcoal/70 px-4 py-2 text-[0.6rem] uppercase tracking-[0.25em] text-white"
+              >
                 Antes
               </span>
-              <span className="pointer-events-none absolute right-5 top-5 bg-navy/80 px-4 py-2 text-[0.6rem] uppercase tracking-[0.25em] text-gold-soft">
+              <span
+                aria-hidden="true"
+                className="pointer-events-none absolute right-5 top-5 bg-navy/80 px-4 py-2 text-[0.6rem] uppercase tracking-[0.25em] text-gold-soft"
+              >
                 Depois
               </span>
             </div>
