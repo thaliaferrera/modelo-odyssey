@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState, type KeyboardEvent } from "react";
 import { Menu, X } from "lucide-react";
 
 const LINKS = [
@@ -13,6 +13,10 @@ const LINKS = [
 export function Nav() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const headerRef = useRef<HTMLElement | null>(null);
+  const menuButtonRef = useRef<HTMLButtonElement | null>(null);
+  const firstMobileLinkRef = useRef<HTMLAnchorElement | null>(null);
+  const wasOpenRef = useRef(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -21,15 +25,64 @@ export function Nav() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  // Bloqueia o scroll e isola o restante da página (main/footer) do teclado e
+  // de leitores de tela enquanto o menu mobile está aberto; devolve o foco ao
+  // botão de menu ao fechar.
   useEffect(() => {
+    const mainEl = document.querySelector("main");
+    const footerEl = document.querySelector("footer");
     document.body.style.overflow = open ? "hidden" : "";
+
+    if (open) {
+      mainEl?.setAttribute("inert", "");
+      footerEl?.setAttribute("inert", "");
+      wasOpenRef.current = true;
+      const focusTimer = window.setTimeout(() => firstMobileLinkRef.current?.focus(), 60);
+      return () => window.clearTimeout(focusTimer);
+    }
+
+    mainEl?.removeAttribute("inert");
+    footerEl?.removeAttribute("inert");
+    if (wasOpenRef.current) {
+      wasOpenRef.current = false;
+      menuButtonRef.current?.focus();
+    }
     return () => {
       document.body.style.overflow = "";
     };
   }, [open]);
 
+  // Esc fecha o menu; Tab/Shift+Tab ficam presos entre o botão de menu e os
+  // links visíveis do overlay enquanto ele está aberto.
+  const onHeaderKeyDown = (e: KeyboardEvent<HTMLElement>) => {
+    if (!open) return;
+    if (e.key === "Escape") {
+      e.preventDefault();
+      setOpen(false);
+      return;
+    }
+    if (e.key !== "Tab" || !headerRef.current) return;
+
+    const focusable = Array.from(
+      headerRef.current.querySelectorAll<HTMLElement>("a[href], button:not([disabled])"),
+    ).filter((el) => el.offsetParent !== null);
+    if (focusable.length === 0) return;
+
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+    if (e.shiftKey && document.activeElement === first) {
+      e.preventDefault();
+      last.focus();
+    } else if (!e.shiftKey && document.activeElement === last) {
+      e.preventDefault();
+      first.focus();
+    }
+  };
+
   return (
     <header
+      ref={headerRef}
+      onKeyDown={onHeaderKeyDown}
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-700 ${
         scrolled
           ? "border-b border-border/70 bg-background/85 py-3 backdrop-blur-xl"
@@ -74,8 +127,11 @@ export function Nav() {
         </div>
 
         <button
+          ref={menuButtonRef}
           type="button"
           aria-label={open ? "Fechar menu" : "Abrir menu"}
+          aria-expanded={open}
+          aria-controls="mobile-menu"
           onClick={() => setOpen((v) => !v)}
           className={`shrink-0 justify-self-end p-2 transition-colors duration-700 lg:hidden ${
             scrolled || open ? "text-navy" : "text-white"
@@ -86,6 +142,8 @@ export function Nav() {
       </div>
 
       <div
+        id="mobile-menu"
+        inert={!open}
         className={`fixed inset-0 top-0 z-40 flex flex-col bg-background px-8 pt-28 transition-all duration-500 lg:hidden ${
           open ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0"
         }`}
@@ -95,6 +153,7 @@ export function Nav() {
             <a
               key={l.href}
               href={l.href}
+              ref={i === 0 ? firstMobileLinkRef : undefined}
               onClick={() => setOpen(false)}
               style={{ transitionDelay: `${open ? 80 + i * 45 : 0}ms` }}
               className={`border-b border-border/70 py-5 font-display text-3xl text-navy transition-all duration-500 ${
