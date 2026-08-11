@@ -74,18 +74,19 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
 
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
   head: () => ({
+    // title/description/og/twitter específicos ficam na rota "/" (src/routes/index.tsx),
+    // que sobrescreve os valores abaixo. Aqui mantemos apenas um fallback genérico
+    // (usado só se alguma rota futura não definir o próprio head) e o que é
+    // realmente global — evita ter duas fontes de verdade para o SEO da home.
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
+      { name: "author", content: "Odyssey Odontologia" },
       { title: "Odyssey — Clínica Odontológica de Luxo" },
       {
         name: "description",
-        content:
-          "Odontologia personalizada de alto padrão com tecnologia de ponta.",
+        content: "Odontologia personalizada de alto padrão com tecnologia de ponta.",
       },
-      { name: "author", content: "Odyssey Odontologia" },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
