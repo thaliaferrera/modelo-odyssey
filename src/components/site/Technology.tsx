@@ -1,4 +1,5 @@
 import techImage from "@/assets/technology.jpg";
+import techImageWebp from "@/assets/technology.webp";
 import { Reveal } from "./Reveal";
 
 const TECH = [
@@ -56,14 +57,17 @@ export function Technology() {
           </div>
 
           <Reveal variant="slow" className="relative lg:pt-10">
-            <img
-              src={techImage}
-              alt="Scanner intraoral 3D ao lado de um projeto digital do sorriso na tela"
-              width={1408}
-              height={1008}
-              loading="lazy"
-              className="aspect-[4/5] w-full object-cover lg:aspect-[3/4]"
-            />
+            <picture>
+              <source srcSet={techImageWebp} type="image/webp" />
+              <img
+                src={techImage}
+                alt="Scanner intraoral 3D ao lado de um projeto digital do sorriso na tela"
+                width={1408}
+                height={1008}
+                loading="lazy"
+                className="aspect-[4/5] w-full object-cover lg:aspect-[3/4]"
+              />
+            </picture>
             <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-navy/80 to-transparent p-8">
               <p className="font-display text-2xl italic text-gold-soft">
                 Planejado em pixels. Entregue em esmalte.
