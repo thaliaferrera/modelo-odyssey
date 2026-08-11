@@ -1,5 +1,5 @@
 import { type FormEvent, useState } from "react";
-import { ADDRESS_LINES, EMAIL, PHONE_DISPLAY, WHATSAPP_URL } from "@/lib/clinic";
+import { ADDRESS_LINES, EMAIL, HOURS_DISPLAY, PHONE_DISPLAY, WHATSAPP_URL } from "@/lib/clinic";
 import { Reveal } from "./Reveal";
 
 const FIELD =
@@ -10,6 +10,9 @@ export function Contact() {
 
   const onSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    // TODO: integrar com um envio real (ex: server function do TanStack Start,
+    // ou serviço de e-mail transacional) quando o provedor for definido.
+    // Os campos já têm `name` para permitir ler via FormData sem alterações futuras.
     setSent(true);
   };
 
@@ -61,9 +64,7 @@ export function Contact() {
                   <dt className="text-[0.6rem] uppercase tracking-[0.26em] text-gold">
                     Horários
                   </dt>
-                  <dd className="mt-3 text-sm text-white/70">
-                    Seg – Sex · 09h – 20h · Sáb com hora marcada
-                  </dd>
+                  <dd className="mt-3 text-sm text-white/70">{HOURS_DISPLAY}</dd>
                 </div>
               </dl>
             </Reveal>
@@ -72,34 +73,87 @@ export function Contact() {
           <Reveal delay={100}>
             <form onSubmit={onSubmit} className="flex h-full flex-col">
               <div className="grid gap-8 sm:grid-cols-2">
-                <input required placeholder="Nome completo" className={FIELD} />
-                <input required type="tel" placeholder="Telefone" className={FIELD} />
+                <div>
+                  <label htmlFor="contact-nome" className="sr-only">
+                    Nome completo
+                  </label>
+                  <input
+                    id="contact-nome"
+                    name="nome"
+                    required
+                    placeholder="Nome completo"
+                    className={FIELD}
+                  />
+                </div>
+                <div>
+                  <label htmlFor="contact-telefone" className="sr-only">
+                    Telefone
+                  </label>
+                  <input
+                    id="contact-telefone"
+                    name="telefone"
+                    required
+                    type="tel"
+                    placeholder="Telefone"
+                    className={FIELD}
+                  />
+                </div>
               </div>
               <div className="mt-8 grid gap-8 sm:grid-cols-2">
-                <input required type="email" placeholder="E-mail" className={FIELD} />
-                <select required defaultValue="" className={`${FIELD} text-white/60`}>
-                  <option value="" disabled className="bg-navy">
+                <div>
+                  <label htmlFor="contact-email" className="sr-only">
+                    E-mail
+                  </label>
+                  <input
+                    id="contact-email"
+                    name="email"
+                    required
+                    type="email"
+                    placeholder="E-mail"
+                    className={FIELD}
+                  />
+                </div>
+                <div>
+                  <label htmlFor="contact-interesse" className="sr-only">
                     Interesse
-                  </option>
-                  {[
-                    "Implantes Dentários",
-                    "Ortodontia",
-                    "Clareamento Dental",
-                    "Lentes de Contato Dental",
-                    "Harmonização Facial",
-                    "Odontologia Estética",
-                  ].map((o) => (
-                    <option key={o} value={o} className="bg-navy text-white">
-                      {o}
+                  </label>
+                  <select
+                    id="contact-interesse"
+                    name="interesse"
+                    required
+                    defaultValue=""
+                    className={`${FIELD} text-white/60`}
+                  >
+                    <option value="" disabled className="bg-navy">
+                      Interesse
                     </option>
-                  ))}
-                </select>
+                    {[
+                      "Implantes Dentários",
+                      "Ortodontia",
+                      "Clareamento Dental",
+                      "Lentes de Contato Dental",
+                      "Harmonização Facial",
+                      "Odontologia Estética",
+                    ].map((o) => (
+                      <option key={o} value={o} className="bg-navy text-white">
+                        {o}
+                      </option>
+                    ))}
+                  </select>
+                </div>
               </div>
-              <textarea
-                rows={4}
-                placeholder="O que você gostaria de mudar no seu sorriso?"
-                className={`${FIELD} mt-8 resize-none`}
-              />
+              <div className="mt-8">
+                <label htmlFor="contact-mensagem" className="sr-only">
+                  O que você gostaria de mudar no seu sorriso?
+                </label>
+                <textarea
+                  id="contact-mensagem"
+                  name="mensagem"
+                  rows={4}
+                  placeholder="O que você gostaria de mudar no seu sorriso?"
+                  className={`${FIELD} resize-none`}
+                />
+              </div>
 
               <div className="mt-12 flex flex-col gap-3 sm:flex-row sm:gap-4">
                 <button
