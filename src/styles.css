@@ -132,6 +132,31 @@
     background: var(--gold-soft);
     color: var(--charcoal);
   }
+
+  /* Indicador de foco consistente com a identidade (dourado), visível apenas
+     para navegação por teclado — não altera a aparência para uso com mouse/touch. */
+  :focus-visible {
+    outline: 2px solid var(--gold);
+    outline-offset: 3px;
+  }
+}
+
+/* Respeita a preferência de sistema por menos movimento: as transições e
+   animações passam a ser praticamente instantâneas, sem remover o estado
+   final (conteúdo continua aparecendo, só sem a animação de entrada). */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 
 /* Editorial eyebrow label */
