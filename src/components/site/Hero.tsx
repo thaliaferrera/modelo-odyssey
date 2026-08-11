@@ -1,16 +1,21 @@
 import heroImage from "@/assets/hero.jpg";
+import heroImageWebp from "@/assets/hero.webp";
 import { WHATSAPP_URL } from "@/lib/clinic";
 
 export function Hero() {
   return (
     <section id="top" className="relative min-h-[100svh] w-full overflow-hidden bg-navy-deep">
-      <img
-        src={heroImage}
-        alt="Recepção da clínica odontológica Odyssey em mármore branco com detalhes em azul-marinho e dourado suave"
-        width={1920}
-        height={1280}
-        className="absolute inset-0 size-full object-cover"
-      />
+      <picture>
+        <source srcSet={heroImageWebp} type="image/webp" />
+        <img
+          src={heroImage}
+          alt="Recepção da clínica odontológica Odyssey em mármore branco com detalhes em azul-marinho e dourado suave"
+          width={1920}
+          height={1280}
+          fetchPriority="high"
+          className="absolute inset-0 size-full object-cover"
+        />
+      </picture>
       <div className="absolute inset-0 bg-gradient-to-r from-navy-deep/85 via-navy-deep/55 to-transparent" />
       <div className="absolute inset-0 bg-gradient-to-t from-navy-deep/70 via-transparent to-navy-deep/30" />
 
